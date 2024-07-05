@@ -4,9 +4,9 @@ class DiseaseFinder:
     
 
     def find(symptoms):
-        symp_code = pd.read_csv("E:\MAD_Course\SymToDoc\disease_finder\model\symptom_weight_code.csv")
+        symp_code = pd.read_csv("./model/symptom_weight_code.csv")
         symp_code = symp_code.drop('Unnamed: 0', axis='columns')
-        train = pd.read_csv("E:\MAD_Course\SymToDoc\disease_finder\model\coded_dataset.csv")
+        train = pd.read_csv("./model/coded_dataset.csv")
         train = train.drop_duplicates(subset=['Disease'])
         # input = "abdominal_pain+high_fever+fatigue+dark_urine+itching"
         input_symptoms = symptoms.split("+")
