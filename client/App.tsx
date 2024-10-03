@@ -1,36 +1,42 @@
-import { enableScreens } from 'react-native-screens';
-enableScreens();
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import SuggestedSearch from './src/screens/suggested-search';
-
-// import HomeScreen from './src/screen/HomeScreen';
-// import SignUp from './src/screen/SignUp';
-
+import LoginScreen from './src/screens/login';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import WelcomeScreen from './src/screens/welcome';
 
 
 const Stack = createNativeStackNavigator();
+const isLoggedIn = false;
 
-const App = () => {
+export default function App() {
   return (
-
-    <View style={styles.container}>
-      {/* <HomeScreen/> */}
-      <SuggestedSearch/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        {
+          isLoggedIn? (
+            <>
+            </>
+          ):
+          (
+            <>
+              <Stack.Screen name='Welcome' component={WelcomeScreen} options={{ headerShown: false }}/>
+            </>
+          )
+        }
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
+}
 
 const styles = StyleSheet.create({
-  mainContainer: {
+  container: {
     flex: 1,
     display: 'flex',
+    width: '100%',
     backgroundColor: '#F6F6F6',
     alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center'
-  }
-})
-export default App;
-
+  },
+});

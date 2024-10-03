@@ -1,9 +1,34 @@
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import data from '../../assets/data/diseases_search_JSON.json'
-import { getDisease } from '../services/getDiseases';
 
-const SuggestedSearch = () => {
+const data = [
+    {
+        "ID": 1,
+        "Disease": "Acute Flaccid Myelitis (AFM)",
+        "Discription": "As of January 1, 2020, IDPH is reporting the following number of patients under investigation during the given year and the number of cases that are confirmed, probable, and not cases according to the Centers for Disease Control and Prevention (CDC) after review of the case..."
+
+    },
+    {
+        "ID": 2,
+        "Disease": "Asthma",
+        "Discription": "What is asthma? Asthma is a condition that affects the airways. It makes it hard to breathe because the airways become swollen, produce too much mucus and the muscles around the airways tighten. Asthma can range from mild to severe and can be life threatening. It is recognized that in some families, inherited factors play a role in an individual's risk for asth"
+
+    },
+    {
+        "ID": 3,
+        "Disease": "Breast Cancer",
+        "Discription": "According to the Centers for Disease Control and Prevention each year in the United States, about 237,000 cases of breast cancer are diagnosed in women and about 2,100 in men. About 41,000 women and 450 men in the U.S. die each year from breast cancer. In 2015, Illinois"
+
+    },
+    {
+        "ID": 4,
+        "Disease": "Carbon Monoxide",
+        "Discription": "What Is Carbon Monoxide? Carbon monoxide (CO) is a non-irritating, odorless, colorless gas that is somewhat lighter than air. A by-product of incomplete burning of coal, wood, charcoal, natural gas, fuel oil, kerosene, gasoline, fabrics and plastics, it is the leading cause of poisoning deaths"
+
+    }
+]
+
+const DashboardScreen = () => {
   const [value, setValue] = useState('');
   const [selectedDiseases, setSelectedDiseases] = useState<any[]>([]);
 
@@ -26,7 +51,8 @@ const SuggestedSearch = () => {
   };
 
   const findDisease = async () => {
-    const possibleDisese = await getDisease(selectedDiseases)
+    // const possibleDisese = await getDisease(selectedDiseases)
+    console.log("first")
   }
 
   return (
@@ -88,7 +114,7 @@ const SuggestedSearch = () => {
   );
 };
 
-export default SuggestedSearch;
+export default DashboardScreen;
 
 const styles = StyleSheet.create({
   mainBox: {
